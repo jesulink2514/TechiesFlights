@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="TechiesFlights.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+    xmlns:techiesFlights="clr-namespace:TechiesFlights;assembly=TechiesFlights"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView">
+    <ContentPage.BindingContext>
+        <techiesFlights:MainPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <Grid RowDefinitions="*,Auto">
+
+
+        <Image
+            Grid.RowSpan="2"
+            Aspect="AspectFill"
+            Source="https://travelagents.decameron.com/images/destinos/haiti/indigo/indigo-beach-002.jpg" />
+
+        <BoxView Grid.RowSpan="2">
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Offset="0.0" Color="#DB000000" />
+                    <GradientStop Offset="0.6" Color="Transparent" />
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <Grid
+            Grid.Row="0"
+            Padding="20,60,20,0"
+            ColumnDefinitions="*,*"
+            RowDefinitions="Auto,Auto,Auto">
+            <StackLayout Grid.Row="0">
+                <Label FontSize="18" Text="Iran" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    Text="TEHRAN" />
+            </StackLayout>
+            <StackLayout Grid.Column="1">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="18"
+                    HorizontalOptions="End"
+                    Text="Turkey" />
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="28"
+                    HorizontalOptions="End"
+                    Text="ISTANBUL" />
+            </StackLayout>
+            <Grid
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Margin="0,20"
+                ColumnDefinitions="Auto,*,Auto,*,Auto"
+                ColumnSpacing="0">
+
+                <Path HorizontalOptions="End" Style="{StaticResource StartIcon}" />
+                <BoxView
+                    Grid.Column="1"
+                    BackgroundColor="White"
+                    HeightRequest="2"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center" />
+                <Path
+                    Grid.Column="2"
+                    Margin="10"
+                    HorizontalOptions="Center"
+                    Style="{StaticResource AirplaneIcon}" />
+                <BoxView
+                    Grid.Column="3"
+                    BackgroundColor="White"
+                    HeightRequest="2"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="Center" />
+
+                <Path
+                    Grid.Column="4"
+                    HorizontalOptions="End"
+                    Style="{StaticResource EndIcon}" />
+
+            </Grid>
+
+            <Label
+                Grid.Row="2"
+                FontSize="18"
+                HorizontalOptions="Start"
+                Text="3h 30m +" />
+            <Label
+                Grid.Row="2"
+                Grid.Column="1"
+                FontSize="18"
+                HorizontalOptions="End"
+                Text="16:00" />
+        </Grid>
+
+        <yummy:PancakeView
+            x:Name="InfoPane"
+            Grid.Row="1"
+            Padding="20,30"
+            BackgroundColor="White"
+            CornerRadius="35,35,0,0"
+            HeightRequest="300">
+
+            <yummy:PancakeView.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" TouchPoints="1" />
+            </yummy:PancakeView.GestureRecognizers>
+
+            <StackLayout
+                Orientation="Vertical"
+                Spacing="10"
+                VerticalOptions="Start">
+                <BoxView
+                    BackgroundColor="DarkGray"
+                    HeightRequest="3"
+                    HorizontalOptions="Center"
+                    WidthRequest="80" />
+                <Label
+                    FontSize="Small"
+                    Text="Passenger"
+                    TextColor="DarkGray" />
+                <Label
+                    FontSize="Large"
+                    Text="Hooman Ghorbani"
+                    TextColor="Black" />
+                <BoxView BackgroundColor="LightGray" HeightRequest="2" />
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto,Auto,Auto">
+                    <Grid.Resources>
+                        <ResourceDictionary>
+                            <Style TargetType="Label">
+                                <Setter Property="TextColor" Value="Black" />
+                            </Style>
+                        </ResourceDictionary>
+                    </Grid.Resources>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Flight Date"
+                        TextColor="DarkGray" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        FontSize="20"
+                        Text="29 Oct '20" />
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        Text="Gate"
+                        TextColor="DarkGray" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="K3" />
+
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        HorizontalTextAlignment="End"
+                        Text="Flight"
+                        TextColor="DarkGray" />
+
+                    <Label
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        FontSize="20"
+                        HorizontalTextAlignment="End"
+                        Text="LH233" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Text="Boarding Time"
+                        TextColor="DarkGray" />
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        FontSize="20"
+                        Text="20:00" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        HorizontalTextAlignment="Center"
+                        Text="Seat"
+                        TextColor="DarkGray" />
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        FontSize="20"
+                        HorizontalTextAlignment="Center"
+                        Text="23D" />
+
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        HorizontalTextAlignment="End"
+                        Text="Class"
+                        TextColor="DarkGray" />
+
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        FontSize="20"
+                        HorizontalTextAlignment="End"
+                        Text="Economy" />
+                </Grid>
+                <Button
+                    Grid.Row="1"
+                    Margin="0,20,0,0"
+                    BackgroundColor="#3527ff"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    HeightRequest="50"
+                    Text="View Boarding Pass Code"
+                    TextColor="White" />
+
+                <StackLayout
+                    x:Name="ExplorePane"
+                    HeightRequest="0"
+                    IsVisible="False"
+                    Opacity="0">
+                    <Label Text="Explore Estanbul" TextColor="DarkGray" />
+
+                    <renderedViews:HorizontalListView
+                        ItemHeight="150"
+                        ItemSpacing="8"
+                        ItemWidth="150"
+                        ItemsSource="{Binding ExploreList}"
+                        SnapStyle="Center">
+                        <renderedViews:HorizontalListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid Padding="10">
+                                        <Image
+                                            HeightRequest="150"
+                                            Source="{Binding .}"
+                                            WidthRequest="150" />
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </renderedViews:HorizontalListView.ItemTemplate>
+                    </renderedViews:HorizontalListView>
+
+                </StackLayout>
+            </StackLayout>
+
+        </yummy:PancakeView>
+
+    </Grid>
+
+</ContentPage>
