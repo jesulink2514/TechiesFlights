@@ -18,11 +18,14 @@ namespace TechiesFlights
         {
             InitializeComponent();
         }
-        private object _lockPane = new object();
+
         private DateTime lastPaneTime;
         private const double trothlingMs = 5;
         private double paneY = 0;
         private double minimunInfoPageHeight = 300;
+        private const double upperPoint = 450;
+        private const double lowerPoint = 300;
+        private const double smoothFactor = 0.15;
 
         protected override void OnSizeAllocated(double width, double height)
         {
@@ -46,9 +49,7 @@ namespace TechiesFlights
             ResizePane(paneY,e.TotalY,e.StatusType);
         }
 
-        private const double upperPoint = 500;
-        private const double lowerPoint = 300;
-        private const double smoothFactor = 0.15;
+
         private void ResizePane(double oldY, double y, GestureStatus eStatusType)
         {
             y = oldY + smoothFactor*(y - oldY);
@@ -82,7 +83,6 @@ namespace TechiesFlights
             ExplorePane.HeightRequest = 0;
             ExplorePane.IsVisible = false;
             ExplorePane.Opacity = 0;
-
         }
 
         private void ShowExplore()
