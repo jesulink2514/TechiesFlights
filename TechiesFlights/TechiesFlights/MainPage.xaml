@@ -19,12 +19,13 @@
     </ContentPage.Resources>
     <Grid RowDefinitions="*,Auto">
 
-
+        <!--  Background Image  -->
         <Image
             Grid.RowSpan="2"
             Aspect="AspectFill"
             Source="https://travelagents.decameron.com/images/destinos/haiti/indigo/indigo-beach-002.jpg" />
 
+        <!--  Black over the background  -->
         <BoxView Grid.RowSpan="2">
             <BoxView.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -34,6 +35,7 @@
             </BoxView.Background>
         </BoxView>
 
+        <!--  Top Flight Origin - Destination  -->
         <Grid
             Grid.Row="0"
             Padding="20,60,20,0"
@@ -104,6 +106,7 @@
                 Text="16:00" />
         </Grid>
 
+        <!--  Passenger Panel  -->
         <yummy:PancakeView
             x:Name="InfoPane"
             Grid.Row="1"
@@ -111,10 +114,6 @@
             BackgroundColor="White"
             CornerRadius="35,35,0,0"
             HeightRequest="300">
-
-            <yummy:PancakeView.GestureRecognizers>
-                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" TouchPoints="1" />
-            </yummy:PancakeView.GestureRecognizers>
 
             <StackLayout
                 Orientation="Vertical"
@@ -232,6 +231,7 @@
                     Text="View Boarding Pass Code"
                     TextColor="White" />
 
+                <!--  Explore section  -->
                 <StackLayout
                     x:Name="ExplorePane"
                     HeightRequest="0"
@@ -260,6 +260,7 @@
                     </renderedViews:HorizontalListView>
 
                 </StackLayout>
+
             </StackLayout>
 
         </yummy:PancakeView>
