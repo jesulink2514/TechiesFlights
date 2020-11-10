@@ -115,6 +115,10 @@
             CornerRadius="35,35,0,0"
             HeightRequest="300">
 
+            <yummy:PancakeView.GestureRecognizers>
+                <PanGestureRecognizer PanUpdated="PanGestureRecognizer_OnPanUpdated" TouchPoints="1" />
+            </yummy:PancakeView.GestureRecognizers>
+
             <StackLayout
                 Orientation="Vertical"
                 Spacing="10"
